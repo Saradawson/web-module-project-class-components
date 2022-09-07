@@ -26,7 +26,7 @@ export default class App extends React.Component {
         <ul>
           {
             todos.map(todo => {
-              return (<li key={todo.id}>{todo.name}</li>)
+              return (<li key={todo.id}>{todo.name} { todo.completed? <span>-Complete</span> : <span></span>}</li>)
             })
           }
         </ul>
