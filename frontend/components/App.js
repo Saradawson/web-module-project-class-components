@@ -1,5 +1,4 @@
 import React from 'react';
-import Todo from './Todo';
 import TodoList from './TodoList';
 
 export default class App extends React.Component {
