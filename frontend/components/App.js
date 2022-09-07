@@ -1,13 +1,34 @@
 import React from 'react'
 
 export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      todos: [
+        {
+          name: 'Organize Garage',
+          id: 1528817077286, 
+          completed: false
+        },
+        {
+          name: 'Bake Cookies',
+          id: 1528817084358,
+          completed: false
+        }
+      ]
+    }
+  }
   render() {
+    const { todos } = this.state;
+    console.log(todos);
     return (
       <div>
         <ul>
-          <li>Clean Room</li>
-          <li>Feed Cat</li>
-          <li>Make Dinner</li>
+          {
+            todos.map(todo => {
+              return (<li key={todo.id}>{todo.name}</li>)
+            })
+          }
         </ul>
 
         <form>
