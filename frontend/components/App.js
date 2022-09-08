@@ -30,13 +30,23 @@ export default class App extends React.Component {
     }
     this.setState({...this.state, todos:[...this.state.todos, newTodo]})
   }
+
+  toggleTodo = todoId => {
+    this.setState({...this.state, todos: this.state.todos.map(todo => {
+      if(todo.id === todoId) {
+        return{...todo, completed: !todo.completed};
+      }
+      return todo;
+    })})
+  }
+
   render() {
     const { todos } = this.state;
     console.log(todos);
     return (
       <div>
         
-        <TodoList todos={todos}/>
+        <TodoList toggleTodo={this.toggleTodo} todos={todos}/>
         <Form addTodo={this.addTodo}/>
 
         <button>Clear</button>
