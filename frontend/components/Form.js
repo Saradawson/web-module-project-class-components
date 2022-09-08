@@ -16,7 +16,7 @@ export default class Form extends React.Component {
   submitForm = e => {
     e.preventDefault();
     this.props.addTodo(e, this.state.todo)
-    this.setState({...this.state, item: ''})
+    this.setState({...this.state, todo: ''})
   }
 
   render() {
