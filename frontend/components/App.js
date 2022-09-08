@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './TodoList';
+import Form from './Form';
 
 export default class App extends React.Component {
   constructor() {
@@ -19,6 +20,16 @@ export default class App extends React.Component {
       ]
     }
   }
+
+  addTodo = (e, todo) => {
+    e.preventDefault();
+    const newTodo = {
+      name: todo,
+      id: Date.now(),
+      completed: false
+    }
+    this.setState({...this.state, todos:[...this.state.todos, newTodo]})
+  }
   render() {
     const { todos } = this.state;
     console.log(todos);
@@ -26,10 +37,7 @@ export default class App extends React.Component {
       <div>
         
         <TodoList todos={todos}/>
-        <form>
-          <input/>
-          <button>Add</button>
-        </form>
+        <Form addTodo={this.addTodo}/>
 
         <button>Clear</button>
       </div>
